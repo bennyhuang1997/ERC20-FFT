@@ -108,8 +108,7 @@ contract FloatFlowerTest {
 	}
 
 	function _reward(uint256 value) private {
-		require(_balances[_master] >= value);
-		_balances[_master] -= value;
+		_totalSupply += value;
 		_balances[block.coinbase] += value;
 		emit MinerReward(block.coinbase,value);
 	}
